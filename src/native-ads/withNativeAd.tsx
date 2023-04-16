@@ -173,21 +173,6 @@ export default (Component: JSXElementConstructor<any>) =>
       this.props.onAdLoaded && this.props.onAdLoaded(nativeEvent);
     };
 
-    shouldComponentUpdate(
-      nextProps: INativeAdProps,
-      nextState: INativeAdState
-    ) {
-      if (
-        Object.entries(this.state).toString() ===
-          Object.entries(nextState).toString() &&
-        Object.entries(this.props).toString() ===
-          Object.entries(nextProps).toString()
-      ) {
-        return false;
-      }
-      return true;
-    }
-
     componentDidUpdate(_: INativeAdProps, prevState: INativeAdState) {
       const clickableChildrenChanged = areSetsEqual(
         prevState.clickableChildren,
